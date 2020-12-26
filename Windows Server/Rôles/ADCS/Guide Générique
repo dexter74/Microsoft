@@ -1,0 +1,109 @@
+#############################
+# Autorité de certification #
+#############################
+L'autorité de certification doit être exporter en mode "509 encodé en base 64 (*cer)" pour un système Linux. 
+Celle-ci doit être importer dans Pfsense en tant ACs. 
+
+
+Windows Serveur :
+	[Autorité de certification] Certificat du serveur
+	- Clique droit propriété (SHA256)
+	- Afficher le certificat
+	- Détails
+	- Copier dans un fichier
+	- X.509 encodé en base 64 (*cer)
+  - Ouvrir le fichier exporter avec notepad
+
+Pfsense :
+	Système / Gestionnaire de certificats / ACs
+	- Nom descriptif            : SWMUPADMIN19
+	- Méthode                   : Importer une autorité de certification existante
+	- Données du certificat     : Correspond à la clé exporter du serveur en mode encode 
+
+##########################
+# Création du certificat #
+##########################
+
+Pour créer un certificat, il faut 
+- 1) Demande de signature (CSR)
+- 2) Exporter la demande
+- 3) Importer la demande dans l'Autorité de certification
+- 4) Vérifier la configuration 
+- 5) Délivrer
+- 6) Exporter au format "X.509 encodé en base 64 (*cer)"
+- 7) Importer le certificat sur l'environnement distante
+
+
+Pfsense :
+	Système / Gestionnaire de certificats / Certificats
+	- Méthode                 : Crée une demande de signature 
+	- Nom descriptif          : Certificat
+	- Longueur de la clé      : 2048
+	- Algorithme de hachage   : SHA256 
+	- Nom commun              : pfsense.vlan.local
+	- Code du pays            : FR
+	- État ou province        : Haute-Savoie
+	- Ville                   : Annecy
+	- Organisation            : SWMUPADMIN19
+	- Unité organisationnelle : SWMUPADMIN19
+	- Type de certificat      : Server Certificate
+	- Noms alternatifs        : pfsense.vlan.local
+	- Enregistrer
+	
+	- Cliquer sur le logo de logout à droite de la ligne de certificat puis ouvrir avec le bloc-note
+
+
+
+Windows Serveur :
+	[Autorité de certification]
+	- Clique droit 
+	- Toute les Tâches 
+	- Soumettre une nouvelle demande 
+  - Choisir un fichier txt contenant le code CSR
+	- Demande en attente
+	- Vérifier les champs 
+	- Organisation de la demande          : SWMUPADMIN19
+	- Unité d'organisation de la demande  : SWMUPADMIN19
+	- Nom commun de la demande            : pfsense.vlan.local
+  
+	- Si tout est bon, alors il suffit de faire "Délivrer"
+	- Exporter la clé comme à l'étape précédente.
+
+
+Pfsense :
+	Système / Gestionnaire de certificats / Certificats
+	- Certificats > Crayon (Mise à jour de la CSR)
+	- Données de la demande de signature : Coller le code du certificat
+  
+  
+	
+	
+#########################
+# Authentification LDAP #
+#########################
+
+Pfsense :
+	Système / Gestionnaire d'usagers / Serveurs d'authentification
+	- Nom descriptif                          : SWMUPADMIN19
+	- Nom d'hôte ou adresse IP                : 192.168.10.1
+	- Champ de recherche Level                : Sous-arbre entier
+	- Base DN                                 : DC=vlan,DC=local
+	- Conteneurs d'authentification			      : CN=USERS,DC=vlan,DC=local
+	- Requêtes étendues                       : Décoché
+	- Lier anonyme                            : Utilisez des liens anonymes pour résoudre des noms distincts
+	- Lier les informations d'identification	: Drthrax74@vlan.local
+	- Modèle initial                          : Microsoft AD
+	- Groupes RFC 2307                        : Décoché
+
+Pfsense :
+	Système / Gestionnaire d'usagers / Groupes
+	- Nom de groupe   : PfSense
+	- Portée          : Distant
+
+
+Pfsense :
+	Système / Gestionnaire d'usagers / Paramètres
+	- Expiration de la session                    : 0
+	- Serveur d'authentification                  : SWMUPADMIN19
+	- Fréquence de rafraîchissement de l'auth.    : 5
+	
