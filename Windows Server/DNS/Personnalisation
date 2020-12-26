@@ -1,0 +1,30 @@
+Pour ajouter dans le DNS le réseau physique, il faut ajout une zone direct et inversée qui correspond au domaine. (<host>.<domaine>)
+
+Exemple:
+- pfsense.lan : pfsense est le nom de la machine et lan est le domaine.
+
+
+DNS
+> SWMUPADMIN16
+> Zone de recherche Directes
+> LAN
+- routeur.lan       = 192.168.1.1
+- proxmox.lan       = 192.168.1.2
+- pfsense.lan       = 192.168.1.3
+- swmupadmin19.lan  = 192.168.1.4
+
+DNS 
+> SWMUPADMIN19
+> Zone de recherche Inversé
+> 192.168.1 (1.168.192.in-addr.arpa)
+
+
+
+Vérification sur le serveur Windows:
+- nslookup routeur.lan
+- nslookup proxmox.lan
+- nslookup pfsense.lan
+- nslookup swmupadmin19.lan
+
+
+ADGuardHome se sert du serveur DNS de Windows Server 2016, donc aucune entrée est à inscrire dans le DNS.
