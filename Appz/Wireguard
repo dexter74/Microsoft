@@ -1,0 +1,66 @@
+Pour réaliser un Serveur VPN Wireguard sous Windows.
+
+
+Etape 1: Installer Wireguard.
+
+Etape 2: Génération de la configuration
+
+Etape 3: Ajouter un Tunnel Vide et coller votre code
+
+
+Etape 4: Partage connexion
+- Panneau de configuration
+- Centre Réseau et partage
+- Modifier les paramètres de la carte
+- Choisir l'interface donnant l'accès internet
+- Aller dans Propriété (Panneau où on configure l'IP)
+- Onglet Partage
+- Cocher la case "Autoriser d'autres utilisateurs du réseau à se connecter via la connexion internet de cet ordinateur
+- Normalement dans le Centre de Réseau et partage on voit la carte-réseau Internet et le réseau VPN juste en dessous
+
+[En cas de problème pour relié]
+- Gestionnaire de périphérique
+- Affichage
+- Afficher les périphériques cachés
+- Supprimer le périphérique caché
+- Relancer l'étape 4.
+
+
+
+
+Etape 5: Ouvrir le port 51820 en UDP sur le pare-feu
+netsh advfirewall firewall add rule name="Port Wireguard UDP" dir=in protocol=udp localport=51820 action=allow
+netsh advfirewall firewall delete rule "Port Wireguard UDP"
+
+
+Etape 6: Reconfigurer la carte Réseau VPN (Windows lors de l'ajoute la modifier)
+reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\SharedAccess\Parameters" /v ScopeAddress /t REG_SZ /d <IP SERVER VPN> /f 
+reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\SharedAccess\Parameters" /v StandaloneDHCPAddress /t REG_SZ /d <IP SERVER VPN> /f 
+- Vérifier la configuration de la carte-réseau
+
+
+Etape 7: Activer le service "Partage de connexion Internet (ICS)"
+sc config sharedaccess start= auto
+net start sharedaccess
+
+Etape 8: Rendre permanent la configuration
+reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\SharedAccess" /v EnableRebootPersistConnection /t reg_dword /d 1 /f
+
+ Etape 9: Modifier le type de réseau pour le VPN (Privée)
+ - Stratégie de sécurité locale
+ - Stratégies du gestionnaire de listes de réseaux
+ - Sélectionner le nom du réseau
+ - Emplacement réseau
+ - Type d'emplacement : Privé
+ 
+ 
+ Etape 10: Connexion au VPN et vérification
+ Se connecter au VPN puis regarder dans l'application Wireguard du serveur la partie "Homologue" si une connexion est faite.
+ 
+ Etape 10: Tester le surf
+ Si le surf marche pas c'est que le DNS côté client est mal configurer
+ 
+ Etape 11: Ping le client depuis le serveur.
+
+
+https://www.wireguardconfig.com/
