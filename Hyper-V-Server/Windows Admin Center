@@ -1,0 +1,8 @@
+# Guide: https://docs.microsoft.com/fr-fr/windows-server/manage/windows-admin-center/deploy/install
+
+
+# Exécutez la commande suivante pour installer Windows Admin Center et générer automatiquement un certificat auto-signé :
+msiexec /i WindowsAdminCenter2009.msi /qn /L*v log.txt SME_PORT=443 SSL_CERTIFICATE_OPTION=generate
+
+Exécutez la commande suivante pour installer Windows Admin Center avec un certificat existant :
+msiexec /i WindowsAdminCenter2009.msi /qn /L*v log.txt SME_PORT=<port> SME_THUMBPRINT=<thumbprint> SSL_CERTIFICATE_OPTION=installed
