@@ -1,0 +1,280 @@
+##########################################################
+# Les outils RSAT permettent de gérer un serveur Windows #
+##########################################################
+
+Get-WindowsCapability     : Information
+Add-WindowsCapability     : Ajouter
+Remove-WindowsCapability  : Supprimer
+
+
+#Informations sur les paquets
+Get-WindowsCapability -Name RSAT* -Online
+Get-WindowsCapability -Name RSAT* -Online | findstr Rsat.
+
+
+------------------------------------------------------------------------------
+Name         : Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0
+Name         : Rsat.BitLocker.Recovery.Tools~~~~0.0.1.0
+Name         : Rsat.CertificateServices.Tools~~~~0.0.1.0
+Name         : Rsat.DHCP.Tools~~~~0.0.1.0
+Name         : Rsat.Dns.Tools~~~~0.0.1.0
+Name         : Rsat.FailoverCluster.Management.Tools~~~~0.0.1.0
+Name         : Rsat.FileServices.Tools~~~~0.0.1.0
+Name         : Rsat.GroupPolicy.Management.Tools~~~~0.0.1.0
+Name         : Rsat.IPAM.Client.Tools~~~~0.0.1.0
+Name         : Rsat.LLDP.Tools~~~~0.0.1.0
+Name         : Rsat.NetworkController.Tools~~~~0.0.1.0
+Name         : Rsat.NetworkLoadBalancing.Tools~~~~0.0.1.0
+Name         : Rsat.RemoteAccess.Management.Tools~~~~0.0.1.0
+Name         : Rsat.RemoteDesktop.Services.Tools~~~~0.0.1.0
+Name         : Rsat.ServerManager.Tools~~~~0.0.1.0
+Name         : Rsat.Shielded.VM.Tools~~~~0.0.1.0
+Name         : Rsat.StorageMigrationService.Management.Tools~~~~0.0.1.0
+Name         : Rsat.StorageReplica.Tools~~~~0.0.1.0
+Name         : Rsat.SystemInsights.Management.Tools~~~~0.0.1.0
+Name         : Rsat.VolumeActivation.Tools~~~~0.0.1.0
+Name         : Rsat.WSUS.Tools~~~~0.0.1.0
+
+------------------------------------------------------------------------------
+
+
+#Liste des paquets (Etat)
+Get-WindowsCapability -Name RSAT* -Online | Select-Object -Property DisplayName, State
+
+
+#installer un paquet
+Add-WindowsCapability  –online –Name "Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.BitLocker.Recovery.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.CertificateServices.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.DHCP.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.Dns.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.FailoverCluster.Management.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.FileServices.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.GroupPolicy.Management.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.IPAM.Client.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.LLDP.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.NetworkController.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.NetworkLoadBalancing.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.RemoteAccess.Management.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.RemoteDesktop.Services.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.ServerManager.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.Shielded.VM.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.StorageMigrationService.Management.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.StorageReplica.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.SystemInsights.Management.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.VolumeActivation.Tools~~~~0.0.1.0"
+Add-WindowsCapability  –online –Name "Rsat.WSUS.Tools~~~~0.0.1.0"
+
+------------------------------------------------------------------------------
+
+#Déinstaller paquet:
+Remove-WindowsCapability –online –Name "Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.BitLocker.Recovery.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.CertificateServices.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.DHCP.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.Dns.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.FailoverCluster.Management.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.FileServices.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.GroupPolicy.Management.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.IPAM.Client.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.LLDP.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.NetworkController.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.NetworkLoadBalancing.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.RemoteAccess.Management.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.RemoteDesktop.Services.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.ServerManager.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.Shielded.VM.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.StorageMigrationService.Management.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.StorageReplica.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.SystemInsights.Management.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.VolumeActivation.Tools~~~~0.0.1.0"
+Remove-WindowsCapability –online –Name "Rsat.WSUS.Tools~~~~0.0.1.0"
+
+
+------------------------------------------------------------------------------
+
+
+
+Name         : Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT: outils Active Directory Domain Services Directory et services LDS (Lightweight Directory 
+               Services)
+Description  : Les outils Active Directory Domain Services (AD DS) et les services AD LDS (Lightweight Directory 
+               Services) comprennent des outils de composant logiciel enfichable et de ligne de commande pour la 
+               gestion à distance d'AD DS et d'AD LDS sous Windows Server.
+DownloadSize : 5230259
+InstallSize  : 34704398
+
+Name         : Rsat.BitLocker.Recovery.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : utilitaires d'administration de chiffrement de lecteur BitLocker
+Description  : Les utilitaires d'administration du chiffrement de lecteur BitLocker incluent des outils de gestion 
+               des fonctionnalités de chiffrement de lecteur BitLocker. La Visionneuse de mot de passe de 
+               récupération BitLocker pour Active Directory vous aide à trouver les mots de passe de récupération 
+               de chiffrement de lecteur BitLocker dans Active Directory Domain Services (AD DS).
+DownloadSize : 42909
+InstallSize  : 123544
+
+Name         : Rsat.CertificateServices.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : outils des services de certificats Active Directory
+Description  : Les outils des services de certificats Active Directory incluent l'autorité de certification, les 
+               modèles de certificats, les composants logiciels enfichables de gestion des répondeurs en ligne et 
+               des répondeurs pour la gestion à distance des services AD CS sur Windows Server
+DownloadSize : 1570788
+InstallSize  : 11122924
+
+Name         : Rsat.DHCP.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : outils du serveur DHCP
+Description  : Les outils du serveur DHCP incluent le composant logiciel enfichable MMC DHCP, le contexte netsh du 
+               serveur DHCP et le module Windows PowerShell pour le serveur DHCP.
+DownloadSize : 1655744
+InstallSize  : 14468782
+
+Name         : Rsat.Dns.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : outils du serveur DNS
+Description  : Les outils du serveur DNS incluent le composant logiciel enfichable Gestionnaire DNS, l'outil de 
+               ligne de commande dnscmd.exe et le module Windows PowerShell pour le serveur DNS.
+DownloadSize : 1333944
+InstallSize  : 12406460
+
+Name         : Rsat.FailoverCluster.Management.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : outils de clustering de basculement
+Description  : Les outils de clustering de basculement incluent le composant logiciel enfichable Gestionnaire du 
+               cluster de basculement, l'interface de mise à jour adaptée aux clusters et le module Clustering de 
+               basculement pour Windows PowerShell
+DownloadSize : 9867882
+InstallSize  : 65160376
+
+Name         : Rsat.FileServices.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : outils de services de fichiers
+Description  : Les outils de services de fichiers incluent des outils de composant logiciel enfichable et de ligne 
+               de commande pour la gestion à distance du rôle Services de fichiers sous Windows Server.
+DownloadSize : 5322476
+InstallSize  : 34491564
+
+Name         : Rsat.GroupPolicy.Management.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : outils de gestion de stratégie de groupe
+Description  : Les outils de gestion de stratégie de groupe incluent la console de gestion des stratégies de 
+               groupe, l'éditeur de gestion des stratégies de groupe et l'éditeur d'objets GPO Starter de stratégie 
+               de groupe.
+DownloadSize : 4276409
+InstallSize  : 37846816
+
+Name         : Rsat.IPAM.Client.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : client Gestion des adresses IP (IPAM)
+Description  : Le client Gestion des adresses IP (IPAM) permet la connexion à un serveur IPAM distant et sa 
+               gestion. IPAM fournit une structure centrale pour la gestion d'un espace d'adresses IP et des 
+               serveurs d'infrastructure correspondants, tels que DHCP et DNS dans une forêt Active Directory.
+DownloadSize : 232337
+InstallSize  : 1753232
+
+Name         : Rsat.LLDP.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : outils LLDP Data Center Bridging
+Description  : Les outils LLDP de pontage de centre de données incluent des outils PowerShell pour la gestion à 
+               distance des agents LLDP sur Windows Server.
+DownloadSize : 23411
+InstallSize  : 46578
+
+Name         : Rsat.NetworkController.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : outils de gestion du contrôleur de réseau
+Description  : Les outils de gestion du contrôleur de réseau incluent des outils PowerShell pour la gestion du rôle 
+               Contrôleur de réseau sous Windows Server.
+DownloadSize : 168544
+InstallSize  : 1567358
+
+Name         : Rsat.NetworkLoadBalancing.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : outils d'équilibrage de charge réseau
+Description  : Les outils d'équilibrage de la charge réseau incluent le composant logiciel enfichable Gestionnaire 
+               d'équilibrage de la charge réseau, le module d'équilibrage de la charge réseau pour Windows 
+               PowerShell et les outils de ligne de commande NLB. exe et WLBS. exe.
+DownloadSize : 274229
+InstallSize  : 1757948
+
+Name         : Rsat.RemoteAccess.Management.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : outils de gestion de l'accès à distance
+Description  : Les outils de gestion de l'accès à distance incluent des outils graphiques et PowerShell pour la 
+               gestion du rôle Accès à distance sous Windows Server.
+DownloadSize : 7025683
+InstallSize  : 55591014
+
+Name         : Rsat.RemoteDesktop.Services.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : outils des services Bureau à distance
+Description  : Les outils des services Bureau à distance incluent des composants logiciels enfichables pour 
+               gestionnaire de licences des services Bureau à distance, diagnostics des licences des services 
+               Bureau à distance et le gestionnaire de passerelle Bureau à distance. Utilisez le gestionnaire de 
+               serveur pour administrer tous les autres services de rôle RDS.
+DownloadSize : 976546
+InstallSize  : 7503202
+
+Name         : Rsat.ServerManager.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : gestionnaire de serveur
+Description  : Le Gestionnaire de serveur inclut la console du Gestionnaire de serveur et des outils PowerShell 
+               pour la gestion à distance de Windows Server, et inclut des outils pour configurer à distance 
+               l'association de cartes réseau sur Windows Server et Best Practices Analyzer.
+DownloadSize : 6626365
+InstallSize  : 62184928
+
+Name         : Rsat.Shielded.VM.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : outils de VM dotées d'une protection maximale
+Description  : Les outils de VM dotées d'une protection maximale incluent l'Assistant Approvisionnement de fichier 
+               de données et l'Assistant de disque de modèle.
+DownloadSize : 18270690
+InstallSize  : 41626772
+
+Name         : Rsat.StorageMigrationService.Management.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : Outils de gestion des services de migration du stockage
+Description  : Fournit des outils de gestion pour les tâches de migration du stockage.
+DownloadSize : 124644
+InstallSize  : 834498
+
+Name         : Rsat.StorageReplica.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : Outils d'administration de serveur distant : module de réplica de stockage pour Windows PowerShell
+Description  : Inclut le module PowerShell pour gérer à distance la fonctionnalité de réplica de stockage sur 
+               Windows Server 2016.
+DownloadSize : 462423
+InstallSize  : 3151864
+
+Name         : Rsat.SystemInsights.Management.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : module Informations système pour Windows PowerShell
+Description  : Le module Informations système pour Windows PowerShell offre la possibilité de gérer la 
+               fonctionnalité Informations système.
+DownloadSize : 56363
+InstallSize  : 294992
+
+Name         : Rsat.VolumeActivation.Tools~~~~0.0.1.0
+State        : NotPresent
+DisplayName  : RSAT : outils d'activation en volume
+Description  : Les outils d'activation en volume peuvent être utilisés pour gérer les clés de licence d'activation 
+               en volume sur un hôte du service de gestion de clés (KMS) ou dans les services de domaine Microsoft 
+               Active Directory. Ces outils peuvent être utilisés pour installer, activer et gérer une ou plusieurs 
+               clés de licence d'activation en volume, ainsi que pour configurer les paramètres KMS sur Windows 
+               Server.
+DownloadSize : 216883
+InstallSize  : 1121962
+
+Name         : Rsat.WSUS.Tools~~~~0.0.1.0
+State        : Staged
+DisplayName  : RSAT : outils Windows Server Update Services
+Description  : Les outils Windows Server Update Services incluent des outils graphiques et PowerShell pour la 
+               gestion de WSUS.
+DownloadSize : 1681014
+InstallSize  : 16581900
+
+
