@@ -1,0 +1,22 @@
+#########################################################
+# Script permettant de gérer l'interraction du Pare-Feu #
+#########################################################
+
+
+# Status du Pare-feu:
+Get-NetFirewallProfile -Profile Private
+Get-NetFirewallProfile -Profile Public
+Get-NetFirewallProfile -Profile Domain
+
+
+# Désactiver le Pare-feu:
+Set-NetFirewallProfile -Profile Domain  -Enabled False
+Set-NetFirewallProfile -Profile Public  -Enabled False
+Set-NetFirewallProfile -Profile Private -Enabled False
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled false
+
+# Activer le Pare-feu:
+Set-NetFirewallProfile -Profile Domain  -Enabled true
+Set-NetFirewallProfile -Profile Public  -Enabled true
+Set-NetFirewallProfile -Profile Private -Enabled true
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled true
