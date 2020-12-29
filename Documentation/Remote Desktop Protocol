@@ -1,0 +1,31 @@
+######################
+# Ajouter un serveur #
+######################
+CMDKEY [{/add | /generic}:nom_cible {/smartcard | /user:nom_utilisateur
+       {/pass{:mot_passe}}} | /delete{:nom_cible | /ras} | /list{:nom_cible}]
+
+Exemples :
+Pour répertorier les informations d’identification disponibles :
+cmdkey /list
+cmdkey /list:nom_cible
+
+Pour créer des informations d’identification de domaine :
+cmdkey /add:nom_cible /user:nom_utilisateur /pass:mot_passe
+cmdkey /add:nom_cible /user:nom_utilisateur /pass
+cmdkey /add:nom_cible /user:nom_utilisateur
+cmdkey /add:nom_cible /smartcard
+
+Pour créer des informations d’identification génériques :
+Le commutateur /add peut être remplacé par /generic pour créer des informations d’identification génériques
+
+Pour supprimer des informations d’identification existantes :
+cmdkey /delete:nom_cible
+
+Pour supprimer les informations d’identification RAS :
+cmdkey /delete /ras
+
+
+vfp10-bam0stb18jvm
+cmdkey /add:vfp10-bam0stb18jvm /user:vfp10-bam0stb18jvm\ETA5558 /pass:@Abcdef123456
+cmdkey /list:vfp10-bam0stb18jvm
+cmdkey /delete:vfp10-bam0stb18jvm
