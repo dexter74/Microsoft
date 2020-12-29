@@ -25,7 +25,3 @@ Pour supprimer les informations d’identification RAS :
 cmdkey /delete /ras
 
 
-
-cmdkey /generic:"vfp10-bam0stb18jvm" /user:".\ETA5558" /pass:"@Abcdef123456"
-mstsc /v:vfp10-bam0stb18jvm
-cmdkey /delete:vfp10-bam0stb18jvm
