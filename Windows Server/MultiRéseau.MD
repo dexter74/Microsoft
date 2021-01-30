@@ -5,13 +5,15 @@ ________________________________________________________________________________
 ### **I. Présentation de la configuration Réseau**:
 
 #### Information sur les Réseaux:
-  1. **Un réseau Physique en CIDR**: 192.168.1.0/24
-  2. **Un réseau Virtuel  en CIDR**: 192.168.10.0/24
-  
+````
+  1. Un réseau Physique en CIDR: 192.168.1.0/24
+  2. Un réseau Virtuel  en CIDR: 192.168.10.0/24
+````
+
  #### Information sur les Paserelle:
 ````
-  1. La passerelle du réseau physique à comme adresse IP: **192.168.1.1**
-  2. La passerelle du réseau Virtuel  à comme adresse IP: **192.168.10.1**
+  1. La passerelle du réseau physique à comme adresse IP: 192.168.1.1
+  2. La passerelle du réseau Virtuel  à comme adresse IP: 192.168.10.1
 ````
 __________________________________________________________________________________________________________________________________________
 
