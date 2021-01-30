@@ -2,7 +2,7 @@ ____
 ### <p align=center>**Mise en place de l'environnement**</align>
 
 ____
-
+#### **Windows Serveur 2016**
 WINS:
 C'est un système de centralisation dynamique des listes des noms des machines: 
  - On dit aux ordinateurs du réseau d'aller inscrire leur nom au serveur Wins
