@@ -6,21 +6,26 @@ ________________________________________________________________________________
 
 ````
 - L'environnement sera composé de deux réseaux distinct avec un DHCP et DNS distinct.
+
 - Un Windows Server 2016 pour le réseau Virtuel qui aura comme rôle le serveur WINS.
+
 - Un serveur Linux ayant les services WSD, Samba (Prise en charge Wins)
-  > Des partages seront créer.
+
+> Des partages seront créer.
 ````
 
 
 #### Information sur les Réseaux:
 ````
   1. Un réseau Physique en CIDR: 192.168.1.0/24
+  
   2. Un réseau Virtuel  en CIDR: 192.168.10.0/24
 ````
 
  #### Information sur les Paserelle:
 ````
   1. La passerelle du réseau physique à comme adresse IP: 192.168.1.1
+  
   2. La passerelle du réseau Virtuel  à comme adresse IP: 192.168.10.1
 ````
 __________________________________________________________________________________________________________________________________________
