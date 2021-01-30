@@ -3,8 +3,8 @@ ____
 
 ____
 #### **Présentation du Réseau**:
-  1. Un réseau Physique en CIDR : 192.168.1.0/24
-  2. Un réseau Virtuel  en CIDR : 192.168.10.0/24
+  1. **Un réseau Physique en CIDR**: 192.168.1.0/24
+  2. **Un réseau Virtuel  en CIDR**: 192.168.10.0/24
 
 
 
