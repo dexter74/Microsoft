@@ -2,6 +2,9 @@ ____
 ### <p align=center>**Mise en place de l'environnement**</align>
 
 ____
+#### **Présentation du Réseau**
+
+____
 #### **Windows Serveur 2016**
 ````
 WINS:
