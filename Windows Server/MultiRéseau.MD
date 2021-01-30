@@ -3,7 +3,6 @@ ________________________________________________________________________________
 
 __________________________________________________________________________________________________________________________________________
 ### **I. Présentation de la configuration Réseau**:
-
 ````
 - L'environnement sera composé de deux réseaux distinct avec un DHCP et DNS distinct.
 
@@ -14,25 +13,59 @@ ________________________________________________________________________________
 > Des partages seront créer.
 ````
 
-
-#### Information sur les Réseaux:
+#### A. Information sur les Réseaux:
 ````
   1. Un réseau Physique en CIDR: 192.168.1.0/24
   
   2. Un réseau Virtuel  en CIDR: 192.168.10.0/24
 ````
 
- #### Information sur les Paserelle:
+ #### B. Information sur les Paserelle:
 ````
   1. La passerelle du réseau physique à comme adresse IP: 192.168.1.1
   
   2. La passerelle du réseau Virtuel  à comme adresse IP: 192.168.10.1
 ````
 __________________________________________________________________________________________________________________________________________
+#### **II. Installation du Pare-Feu Pfsense**
+
+#### A. Configuration de la carte-réseau WAN
+Interface 1: vtnet0 (WAN)
+````
+- VLAN          : NON
+- Adresse IP    : 192.168.1.4
+- Passerelle    : 24
+- Serveur DNS   : 192.168.1.1
+````
+
+#### B. Configuration de la carte-réseau LAN
+````
+- VLAN          : NON
+- Adresse IP    : 192.168.10.1
+- Passerelle    : 24
+- Range du DHCP : 200-210
+````
 
 
+#### C. Prise en charge du panel HTTPS sur le port 444.
+````
+````
+
+#### D. 
+````
+````
+
+
+__________________________________________________________________________________________________________________________________________
 ____
-#### **Windows Serveur 2016**
+#### **III. Installation de Windows Serveur**
+
+#### A. Adresse IP
+````
+````
+
+
+
 ````
 WINS:
 C'est un système de centralisation dynamique des listes des noms des machines: 
