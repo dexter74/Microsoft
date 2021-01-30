@@ -1,6 +1,6 @@
-#################
-# Présentations #
-#################
+____
+<p align=center>Présentations </align>
+____
 
 WINS:
 C'est un système de centralisation dynamique des listes des noms des machines: 
